@@ -6,7 +6,7 @@ const operand2 = Number(process.argv[3])
 const operation = process.argv[4]
 
 emitter.on(operation, async ({a, b}) => {
-  const { [operation]: calc } = await import(`../${operation}.js`)
+  const { [operation]: calc } = await import(`./${operation}.js`)
 
   emitter.emit('result', calc(a, b))
 })
